@@ -1,0 +1,93 @@
+// ---------------------------------------------------------------------------
+// Form builder canvas.
+//
+// Styles for the drag-and-drop editing surface. Kept separate from the vendor
+// admin theme so the two never fight over specificity.
+// ---------------------------------------------------------------------------
+
+.fb-canvas {
+    min-height: 420px;
+    border: 2px dashed var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    background-color: var(--bs-tertiary-bg);
+    padding: 1rem;
+
+    // Shown when the form has no fields yet.
+    &.is-empty {
+        display: grid;
+        place-items: center;
+        color: var(--bs-secondary-color);
+    }
+}
+
+// A single field as rendered on the canvas (not the live form).
+.fb-field {
+    position: relative;
+    background: var(--bs-body-bg);
+    border: 1px solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    padding: 0.875rem 1rem;
+    margin-bottom: 0.75rem;
+    cursor: default;
+
+    &:hover .fb-field__actions,
+    &.is-selected .fb-field__actions {
+        opacity: 1;
+    }
+
+    &.is-selected {
+        border-color: var(--bs-primary);
+        box-shadow: 0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.15);
+    }
+}
+
+.fb-field__actions {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    display: flex;
+    gap: 0.25rem;
+    opacity: 0;
+    transition: opacity 0.12s ease-in-out;
+}
+
+// The grab target. Separate from the card so clicking the card body to select
+// a field never starts a drag.
+.fb-field__handle {
+    cursor: grab;
+
+    &:active {
+        cursor: grabbing;
+    }
+}
+
+// SortableJS applies these while a drag is in flight.
+.fb-ghost {
+    opacity: 0.4;
+    background: rgba(var(--bs-primary-rgb), 0.1);
+}
+
+.fb-drag {
+    transform: rotate(1deg);
+}
+
+// Palette of addable field types on the right-hand side.
+.fb-palette__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.625rem 0.25rem;
+    font-size: 0.75rem;
+    text-align: center;
+    border: 1px solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    background: var(--bs-body-bg);
+    cursor: pointer;
+    transition: border-color 0.12s, background-color 0.12s;
+
+    &:hover {
+        border-color: var(--bs-primary);
+        background: rgba(var(--bs-primary-rgb), 0.04);
+    }
+}

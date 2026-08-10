@@ -1,0 +1,192 @@
+
+	@font-face {
+        font-family: SegoeUI;
+src:
+local("Segoe UI Semibold"),
+url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semibold/latest.woff2) format("woff2"),
+url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semibold/latest.woff) format("woff"),
+url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semibold/latest.ttf) format("truetype");
+
+    }
+
+
+/*@font-face {
+    font-family: "ShellBook";
+    src: url('fonts/ShellBook.woff2') format('woff2'),
+         url('fonts/ShellBook.woff') format('woff'),
+         url('fonts/ShellBook.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "ShellMedium";
+    src: url('../fonts/ShellMedium.ttf')  format('truetype');
+}
+
+@font-face {
+    font-family: "ShellHeavy";
+     src: url('../fonts/ShellHeavy.ttf')  format('truetype');
+}*/
+
+@font-face {
+    font-family: 'ShellHeavy';
+    src: url('../fonts/ShellHeavy.eot');
+    src: url('../fonts/ShellHeavy.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/ShellHeavy.woff2') format('woff2'),
+        url('../fonts/ShellHeavy.woff') format('woff'),
+        url('../fonts/ShellHeavy.ttf') format('truetype'),
+        url('../fonts/ShellHeavy.svg#ShellHeavy') format('svg');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ShellBook';
+    src: url('../fonts/ShellBook.eot');
+    src: url('../fonts/ShellBook.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/ShellBook.woff2') format('woff2'),
+        url('../fonts/ShellBook.woff') format('woff'),
+        url('../fonts/ShellBook.ttf') format('truetype'),
+        url('../fonts/ShellBook.svg#ShellBook') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ShellMedium';
+    src: url('../fonts/ShellMedium.eot');
+    src: url('../fonts/ShellMedium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/ShellMedium.woff2') format('woff2'),
+        url('../fonts/ShellMedium.woff') format('woff'),
+        url('../fonts/ShellMedium.ttf') format('truetype'),
+        url('../fonts/ShellMedium.svg#ShellMedium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+
+
+:root {
+    --primary-color: #00A4EF;
+    --secondary-color: #FFB900;
+}
+
+.green-bg{ background: #7FBA00;}
+.text-green{color: #7FBA00;}
+h1, h2 {font-family: "ShellBook", "Helvetica Neue", Helvetica, Arial, sans-serif !important; font-weight: 100 !important;}
+
+
+body{ font-family:ShellBook,"Helvetica Neue",Helvetica,Arial,sans-serif !important;
+font-size: 15px !important;
+color: #000 !important;
+    font-weight: 300;
+/*    line-height: 1.8 !important; */}
+
+ b, strong {
+    font-weight: 600 !important;
+}
+
+footer{ font-family:ShellBook,"Helvetica Neue",Helvetica,Arial,sans-serif !important;}
+
+.horizontalMenu>.horizontalMenu-list>li>a {font-family:ShellMedium,"Helvetica Neue",Helvetica,Arial,sans-serif !important;}
+
+.video-img:before {
+    border: 3px solid #7FBA00;
+    background: #7FBA00;
+}
+.wel-section{margin:140px 0px 140px 0px;}
+.timeline-section{margin:140px 0px 140px 0px;}
+.eligibility-section{margin:140px 0px 140px 0px;}
+.hours-section{margin-bottom:40px;}
+.horizontal-header{background: #fff !important;}
+.nsti-haading{margin-top:100px;}
+.horizontalMenu>.horizontalMenu-list>li>a {padding: 5px 8px !important;}
+
+.sec-title{ color:#243666 !important;font-weight: 500; }
+
+.header-text h1 {
+    font-family:Segoe UI,SegoeUI,"Helvetica Neue",Helvetica,Arial,sans-serif !important;
+    font-weight: 500;
+}
+
+.app-sidebar .side-menu li a.active {
+    color: #00A4EF !important;
+}
+
+
+@media (min-width: 320px) and (max-width: 667px) {
+ 
+ .wel-section{margin:50px 0px 50px 0px !important}
+ .timeline-section{margin:50px 0px 0px 0px !important}
+ .eligibility-section{margin:50px 0px 0px 0px !important}
+ .animated-arrow{background: lightgrey !important;}
+ .nsti-haading{margin-top:50px;}
+ .partners-logo{width:70% !important; margin-left: auto; margin-right: auto;}
+}
+
+
+
+/*----Need for Program---*/
+    .feature-box {
+      background: linear-gradient(135deg, #ffffff, #f9f9f9);
+      padding: 25px 20px;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: all 0.3s ease-in-out;
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      height: 100%;
+      border: 1px solid #e9ecef;
+    }
+    .feature-box:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      background: linear-gradient(135deg, #ffffff, #f1f9f4);
+    }
+    .white-icon {
+  filter: invert(100%) brightness(200%);
+}
+    .feature-icon {
+      font-size: 22px;
+      color: #fff;
+      background: #7FBA00;
+      padding: 16px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(25, 135, 84, 0.3);
+      transition: 0.3s;
+    }
+    .feature-box:hover .feature-icon {
+      background: #6d9f00;
+      transform: scale(1.05);
+    }
+    .feature-content h5 {
+      margin-bottom: 8px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #212529;
+    }
+    .feature-content p {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #6c757d;
+    }
+    .section-title h2 {
+      font-weight: 700;
+      font-size: 2rem;
+    }
+    .section-title p {
+      color: #6c757d;
+      max-width: 600px;
+      margin: 0 auto;
+    }

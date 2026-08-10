@@ -1,0 +1,27 @@
+// ---------------------------------------------------------------------------
+// Application stylesheet.
+//
+// Load order matters:
+//   1. Our Bootstrap variable overrides (must come BEFORE Bootstrap so the
+//      framework compiles against our palette rather than the defaults).
+//   2. Bootstrap 5 itself, from node_modules.
+//   3. Our own component styles, which may override anything above.
+//
+// The legacy admin theme (sidemenu / icons / page chrome) is NOT imported
+// here. It ships as pre-compiled CSS under public/theme/ and is loaded by the
+// layout with a plain <link>. Keeping it out of the Vite bundle means the
+// vendor theme can never be broken by our build, and our build never has to
+// resolve its relative font/image paths.
+// ---------------------------------------------------------------------------
+
+// 1. Variable overrides
+$primary: #0d6efd;
+$border-radius: 0.5rem;
+$font-family-sans-serif: "Inter", -apple-system, "Segoe UI", Roboto, sans-serif;
+
+// 2. Bootstrap
+@import "bootstrap/scss/bootstrap";
+
+// 3. Our components
+@import "components/builder";
+@import "components/layout";

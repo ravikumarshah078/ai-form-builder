@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+>
+    <testsuites>
+        <testsuite name="Unit">
+            <directory>tests/Unit</directory>
+        </testsuite>
+        <testsuite name="Feature">
+            <directory>tests/Feature</directory>
+        </testsuite>
+        <!--
+            Integration: tests that need data COMMITTED, not held in an open
+            transaction. MySQL FULLTEXT indexes are the reason — InnoDB does
+            not update one until the writing transaction commits.
+        -->
+        <testsuite name="Integration">
+            <directory>tests/Integration</directory>
+        </testsuite>
+    </testsuites>
+    <source>
+        <include>
+            <directory>app</directory>
+        </include>
+    </source>
+    <php>
+        <env name="APP_ENV" value="testing"/>
+        <env name="APP_MAINTENANCE_DRIVER" value="file"/>
+        <env name="BCRYPT_ROUNDS" value="4"/>
+        <env name="BROADCAST_CONNECTION" value="null"/>
+        <env name="CACHE_STORE" value="array"/>
+        <!--
+            Tests run against a real MySQL database, not sqlite in memory.
+
+            The schema depends on MySQL-specific features that sqlite either
+            lacks or emulates differently: the FULLTEXT index behind submission
+            search, JSON columns, and enum. Testing against sqlite would be
+            testing a schema we never deploy, and the submission search tests
+            could not run at all.
+
+            Create it once with:
+              CREATE DATABASE form_builder_test
+                CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+        -->
+        <env name="DB_CONNECTION" value="mysql"/>
+        <env name="DB_DATABASE" value="form_builder_test"/>
+        <env name="DB_URL" value=""/>
+        <env name="MAIL_MAILER" value="array"/>
+        <env name="QUEUE_CONNECTION" value="sync"/>
+        <env name="SESSION_DRIVER" value="array"/>
+        <env name="PULSE_ENABLED" value="false"/>
+        <env name="TELESCOPE_ENABLED" value="false"/>
+        <env name="NIGHTWATCH_ENABLED" value="false"/>
+    </php>
+</phpunit>

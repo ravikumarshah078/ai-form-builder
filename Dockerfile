@@ -11,11 +11,11 @@ FROM composer:2.6 AS composer-builder
 WORKDIR /app
 COPY composer*.json ./
 # Install dependencies, ignoring platform requirements during build time
-RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader --ignore-platform-reqs
+RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader --ignore-platform-reqs --no-scripts
 COPY . .
 # Copy compiled assets from node-builder
 COPY --from=node-builder /app/public/build ./public/build
-RUN composer dump-autoload --no-dev --optimize --classmap-authoritative
+RUN composer dump-autoload --no-dev --optimize --classmap-authoritative --no-scripts
 
 # Stage 3: The final production image
 FROM serversideup/php:8.2-fpm-nginx

@@ -32,6 +32,7 @@ COPY --chown=www-data:www-data --from=composer-builder /app /var/www/html
 # Create custom startup script to handle migrations, seeding, and storage link
 RUN mkdir -p /etc/entrypoint.d && \
     echo '#!/bin/sh' > /etc/entrypoint.d/99-custom-setup.sh && \
+    echo 'mkdir -p storage/framework/sessions storage/framework/views storage/framework/cache storage/app/public' >> /etc/entrypoint.d/99-custom-setup.sh && \
     echo 'php artisan config:cache' >> /etc/entrypoint.d/99-custom-setup.sh && \
     echo 'php artisan route:cache' >> /etc/entrypoint.d/99-custom-setup.sh && \
     echo 'php artisan view:cache' >> /etc/entrypoint.d/99-custom-setup.sh && \

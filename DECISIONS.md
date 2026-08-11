@@ -86,8 +86,7 @@ field `q3` is deleted on Tuesday, every Monday submission that answered `q3` bec
 value with no label. Storing `form_version_id` on each submission means the original form can
 always be reconstructed exactly.
 
-**What it also buys.** Versioning and rollback (Part D) become almost free — "restore v3" is
-repointing a foreign key. And the brief's "JSON schema is the single source of truth" requirement
+**What it also buys.** Versioning and rollback become almost free — "restore v3" is repointing a foreign key. And the brief's "JSON schema is the single source of truth" requirement
 is structurally enforced rather than merely intended, because there is no second normalised table
 that could drift.
 

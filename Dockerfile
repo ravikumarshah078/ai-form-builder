@@ -18,7 +18,7 @@ COPY --from=node-builder /app/public/build ./public/build
 RUN composer dump-autoload --no-dev --optimize --classmap-authoritative --no-scripts
 
 # Stage 3: The final production image
-FROM serversideup/php:8.2-fpm-nginx
+FROM serversideup/php:8.4-fpm-nginx
 
 # Switch to root to install php extensions
 USER root

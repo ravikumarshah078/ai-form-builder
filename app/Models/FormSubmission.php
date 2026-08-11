@@ -103,10 +103,20 @@ class FormSubmission extends Model
             ->map(fn (string $word) => '+'.$word.'*')
             ->implode(' ');
 
-        return $query->whereRaw(
-            'MATCH(search_text) AGAINST (? IN BOOLEAN MODE)',
-            [$boolean]
-        );
+        $driver = $query->getConnection()->getDriverName();
+
+        if ($driver === 'mysql' || $driver === 'mariadb') {
+            return $query->whereRaw(
+                'MATCH(search_text) AGAINST (? IN BOOLEAN MODE)',
+                [$boolean]
+            );
+        }
+
+        if ($driver === 'pgsql') {
+            return $query->whereFullText('search_text', $term);
+        }
+
+        return $query->where('search_text', 'like', '%'.$term.'%');
     }
 
     /**

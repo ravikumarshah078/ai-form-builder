@@ -1,0 +1,14 @@
+.git
+.github
+node_modules
+vendor
+storage/*.key
+.env
+.env.*
+tests
+phpunit.xml
+docker-compose*
+README.md
+DECISIONS.md
+EXPLAIN.md
+PART-D-PLAN.md

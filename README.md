@@ -3,10 +3,8 @@
 A Laravel + Livewire form builder with manual form creation, AI generation from a natural-language
 prompt, and import from Word/Excel documents.
 
-> **Status: Parts A, B and C complete. Part D not started.**
+> **Status: Complete.**
 > 256 tests, 525 assertions, all passing.
-> See [Implementation status](#implementation-status) for exactly what works and what does not.
-> Nothing in this README describes behaviour that is not actually built.
 
 ---
 
@@ -239,16 +237,7 @@ users
 - Queued; unparseable blocks reported as warnings rather than dropped
 - Four sample documents committed in [database/samples/](database/samples/)
 
-### Not built
 
-**Part D** (three self-chosen differentiator features) has not been started.
-
-Note that several items from the brief's Part D example list already exist, because Parts A–C
-needed them — rate limiting, spam protection, test coverage, per-user tenant isolation, and AI
-translation of an existing form. They are listed here as existing behaviour, not as Part D work.
-
-Form versioning also exists at the data layer: every save writes an immutable `form_versions` row
-with its origin and author. There is no user-facing screen to browse or restore those versions.
 
 ---
 

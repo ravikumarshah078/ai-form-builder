@@ -29,5 +29,17 @@ RUN install-php-extensions pdo_pgsql pgsql gd zip bcmath intl
 # Copy the application files and ensure correct ownership
 COPY --chown=www-data:www-data --from=composer-builder /app /var/www/html
 
+# Create custom startup script to handle migrations, seeding, and storage link
+RUN mkdir -p /etc/entrypoint.d && \
+    echo '#!/bin/sh' > /etc/entrypoint.d/99-custom-setup.sh && \
+    echo 'php artisan config:cache' >> /etc/entrypoint.d/99-custom-setup.sh && \
+    echo 'php artisan route:cache' >> /etc/entrypoint.d/99-custom-setup.sh && \
+    echo 'php artisan view:cache' >> /etc/entrypoint.d/99-custom-setup.sh && \
+    echo 'php artisan migrate --force' >> /etc/entrypoint.d/99-custom-setup.sh && \
+    echo 'php artisan db:seed --force' >> /etc/entrypoint.d/99-custom-setup.sh && \
+    echo 'php artisan storage:link --force || true' >> /etc/entrypoint.d/99-custom-setup.sh && \
+    chmod 755 /etc/entrypoint.d/99-custom-setup.sh && \
+    chown www-data:www-data /etc/entrypoint.d/99-custom-setup.sh
+
 # Switch back to the unprivileged www-data user
 USER www-data

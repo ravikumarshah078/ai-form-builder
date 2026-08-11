@@ -14,7 +14,7 @@ prompt, and import from Word/Excel documents.
 
 | | |
 |---|---|
-| **Live URL** | _not yet deployed_ |
+| **Live URL** | [https://ai-form-builder-ceyx.onrender.com](https://ai-form-builder-ceyx.onrender.com) |
 | **Email** | `demo@formbuilder.test` |
 | **Password** | `password` |
 

@@ -462,24 +462,6 @@ Measured on real calls: a create runs 6–22s and 1,700–6,900 tokens; an edit 
 
 ---
 
-## Known limitations
-
-- **No live demo URL yet.** The largest outstanding gap against the brief.
-- **Part D is not started.**
-- Cross-form field queries ("which forms have an email field") require MySQL JSON functions and are
-  unindexed. Acceptable at this scale, given the schema is deliberately not normalised.
-- Tenancy is per-user via `user_id`, not per-team.
-- Version history is stored but has no user-facing screen.
-- The import type guesser's keyword patterns are English-only. A document in another language falls
-  through to low confidence on most fields and leans much harder on the AI step, which still works
-  but costs more.
-- Conditional logic is reserved in the schema (`conditional` on every field) but not implemented.
-- The vendor admin theme ships as pre-compiled CSS and is not part of the Vite build.
-- Multi-step forms gate steps client-side only; the whole form posts in one request and is
-  validated server-side in full.
-
----
-
 ## Credits
 
 Bootstrap · Livewire · SortableJS · PhpWord · PhpSpreadsheet · Laravel Horizon.

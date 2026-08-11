@@ -53,7 +53,7 @@
             </div>
         </div>
 
-        @if (config('app.env') === 'local')
+        @if (config('app.env') === 'local' || config('app.env') === 'production')
             <div class="alert alert-info mt-3 mb-0 small">
                 <strong>Demo account</strong><br>
                 demo@formbuilder.test / password
